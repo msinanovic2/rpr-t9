@@ -10,6 +10,9 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="CoverageDataManager">
+    <SUITE FILE_PATH="coverage/rpr_t9$MainTest_ispisiGradove.ic" NAME="MainTest.ispisiGradove Coverage Results" MODIFIED="1545670566423" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>ba.unsa.etf.rpr.*</FILTER>
+    </SUITE>
     <SUITE FILE_PATH="coverage/rpr_t9$Main.ic" NAME="Main Coverage Results" MODIFIED="1545665796539" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>ba.unsa.etf.rpr.*</FILTER>
     </SUITE>
@@ -27,26 +30,26 @@
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
-          <entry key="class" value="2" />
+          <entry key="class" value="4" />
           <entry key="iml" value="1" />
-          <entry key="java" value="6" />
+          <entry key="java" value="7" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="CLASS" value="2" />
+          <entry key="CLASS" value="4" />
           <entry key="IDEA_MODULE" value="1" />
-          <entry key="JAVA" value="6" />
+          <entry key="JAVA" value="7" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="java" value="2607" />
+          <entry key="java" value="3098" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="JAVA" value="2607" />
+          <entry key="JAVA" value="3098" />
         </counts>
       </usages-collector>
     </session>
@@ -56,8 +59,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/ba/unsa/etf/rpr/Main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="194">
-              <caret line="31" selection-start-line="31" selection-end-line="31" />
+            <state>
+              <caret column="24" lean-forward="true" selection-start-column="24" selection-end-column="24" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -66,28 +69,10 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/test/ba/unsa/etf/rpr/MainTest.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="136">
-              <caret line="8" selection-start-line="8" selection-end-line="8" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/test/ba/unsa/etf/rpr/GeografijaDAOTest.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="167">
-              <caret line="25" column="20" lean-forward="true" selection-start-line="25" selection-start-column="20" selection-end-line="25" selection-end-column="20" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/ba/unsa/etf/rpr/Drzava.java">
           <provider selected="true" editor-type-id="text-editor">
             <state>
-              <caret selection-end-column="24" />
+              <caret column="24" lean-forward="true" selection-start-column="24" selection-end-column="24" />
               <folding>
                 <element signature="e#80#81#0" expanded="true" />
                 <element signature="e#113#114#0" expanded="true" />
@@ -128,13 +113,22 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/ba/unsa/etf/rpr/GeografijaDAO.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="187">
-              <caret line="94" selection-start-line="94" selection-end-line="94" />
+            <state relative-caret-position="221">
+              <caret line="283" lean-forward="true" selection-start-line="283" selection-end-line="283" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#2457#2458#0" expanded="true" />
                 <element signature="e#2492#2493#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/test/ba/unsa/etf/rpr/GeografijaDAOTest.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="150">
+              <caret line="102" selection-start-line="102" selection-end-line="102" />
             </state>
           </provider>
         </entry>
@@ -163,10 +157,10 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/test/ba/unsa/etf/rpr/GeografijaDAOTest.java" />
         <option value="$PROJECT_DIR$/src/ba/unsa/etf/rpr/Grad.java" />
         <option value="$PROJECT_DIR$/src/ba/unsa/etf/rpr/Drzava.java" />
         <option value="$PROJECT_DIR$/src/ba/unsa/etf/rpr/Main.java" />
+        <option value="$PROJECT_DIR$/test/ba/unsa/etf/rpr/GeografijaDAOTest.java" />
         <option value="$PROJECT_DIR$/src/ba/unsa/etf/rpr/GeografijaDAO.java" />
       </list>
     </option>
@@ -191,13 +185,7 @@
             <path>
               <item name="rpr-t9" type="b2602c69:ProjectViewProjectNode" />
               <item name="rpr-t9" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="rpr-t9" type="b2602c69:ProjectViewProjectNode" />
-              <item name="rpr-t9" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="rpr" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="rpr-t9" type="b2602c69:ProjectViewProjectNode" />
@@ -209,10 +197,6 @@
               <item name="rpr-t9" type="462c0819:PsiDirectoryNode" />
               <item name="test" type="462c0819:PsiDirectoryNode" />
               <item name="rpr" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="rpr-t9" type="b2602c69:ProjectViewProjectNode" />
-              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
             </path>
           </expand>
           <select />
@@ -225,7 +209,7 @@
     <property name="Downloaded.Files.Path.Enabled" value="false" />
     <property name="Repository.Attach.JavaDocs" value="false" />
     <property name="Repository.Attach.Sources" value="false" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1545666620418" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1545672577042" />
     <property name="last_opened_file_path" value="$USER_HOME$/Desktop/Mirza/Rpr/P20_PristupBazi" />
     <property name="project.structure.last.edited" value="Libraries" />
     <property name="project.structure.proportion" value="0.15" />
@@ -248,9 +232,16 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="JUnit.MainTest.ispisiGradove">
-    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="ba.unsa.etf.rpr.Main" />
+  <component name="RunManager" selected="JUnit.GeografijaDAOTest.dodajDrzavu">
+    <configuration name="All in rpr-t9" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="rpr-t9" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="TEST_OBJECT" value="package" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="GeografijaDAOTest.dodajDrzavu" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="rpr-t9" />
       <extension name="coverage">
         <pattern>
@@ -258,14 +249,10 @@
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="All in rpr-t9" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="rpr-t9" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="TEST_OBJECT" value="package" />
+      <option name="PACKAGE_NAME" value="ba.unsa.etf.rpr" />
+      <option name="MAIN_CLASS_NAME" value="ba.unsa.etf.rpr.GeografijaDAOTest" />
+      <option name="METHOD_NAME" value="dodajDrzavu" />
+      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -281,6 +268,22 @@
       <option name="PACKAGE_NAME" value="ba.unsa.etf.rpr" />
       <option name="MAIN_CLASS_NAME" value="ba.unsa.etf.rpr.GeografijaDAOTest" />
       <option name="METHOD_NAME" value="izmijeniGrad" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="GeografijaDAOTest.obrisiDrzavu2" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="rpr-t9" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="ba.unsa.etf.rpr.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="ba.unsa.etf.rpr" />
+      <option name="MAIN_CLASS_NAME" value="ba.unsa.etf.rpr.GeografijaDAOTest" />
+      <option name="METHOD_NAME" value="obrisiDrzavu2" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -305,14 +308,16 @@
     <list>
       <item itemvalue="JUnit.All in rpr-t9" />
       <item itemvalue="JUnit.GeografijaDAOTest.izmijeniGrad" />
-      <item itemvalue="Application.Main" />
       <item itemvalue="JUnit.MainTest.ispisiGradove" />
+      <item itemvalue="JUnit.GeografijaDAOTest.obrisiDrzavu2" />
+      <item itemvalue="JUnit.GeografijaDAOTest.dodajDrzavu" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.MainTest.ispisiGradove" />
+        <item itemvalue="JUnit.GeografijaDAOTest.dodajDrzavu" />
         <item itemvalue="JUnit.All in rpr-t9" />
-        <item itemvalue="Application.Main" />
+        <item itemvalue="JUnit.GeografijaDAOTest.obrisiDrzavu2" />
+        <item itemvalue="JUnit.MainTest.ispisiGradove" />
         <item itemvalue="JUnit.GeografijaDAOTest.izmijeniGrad" />
       </list>
     </recent_temporary>
@@ -331,20 +336,35 @@
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="All_in_rpr-t9 - 2018.12.24 at 16h 18m 10s.xml">
+    <history-entry file="All_in_rpr-t9 - 2018.12.24 at 17h 49m 22s.xml">
       <configuration name="All in rpr-t9" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="All_in_rpr-t9 - 2018.12.24 at 16h 19m 38s.xml">
-      <configuration name="All in rpr-t9" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="GeografijaDAOTest_izmijeniGrad - 2018.12.24 at 16h 26m 48s.xml">
+    <history-entry file="GeografijaDAOTest_izmijeniGrad - 2018.12.24 at 17h 53m 21s.xml">
       <configuration name="GeografijaDAOTest.izmijeniGrad" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="GeografijaDAOTest_izmijeniGrad - 2018.12.24 at 16h 36m 42s.xml">
-      <configuration name="GeografijaDAOTest.izmijeniGrad" configurationId="JUnit" />
+    <history-entry file="MainTest_ispisiGradove - 2018.12.24 at 17h 53m 21s.xml">
+      <configuration name="MainTest.ispisiGradove" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="All_in_rpr-t9 - 2018.12.24 at 16h 42m 40s.xml">
+    <history-entry file="MainTest_ispisiGradove - 2018.12.24 at 17h 56m 13s.xml">
+      <configuration name="MainTest.ispisiGradove" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="MainTest_ispisiGradove - 2018.12.24 at 17h 57m 16s.xml">
+      <configuration name="MainTest.ispisiGradove" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="All_in_rpr-t9 - 2018.12.24 at 17h 57m 32s.xml">
       <configuration name="All in rpr-t9" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="GeografijaDAOTest_obrisiDrzavu2 - 2018.12.24 at 18h 01m 56s.xml">
+      <configuration name="GeografijaDAOTest.obrisiDrzavu2" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="All_in_rpr-t9 - 2018.12.24 at 18h 02m 26s.xml">
+      <configuration name="All in rpr-t9" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="GeografijaDAOTest_dodajDrzavu - 2018.12.24 at 18h 07m 25s.xml">
+      <configuration name="GeografijaDAOTest.dodajDrzavu" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="GeografijaDAOTest_dodajDrzavu - 2018.12.24 at 18h 09m 05s.xml">
+      <configuration name="GeografijaDAOTest.dodajDrzavu" configurationId="JUnit" />
     </history-entry>
   </component>
   <component name="ToolWindowManager">
@@ -361,11 +381,11 @@
       <window_info anchor="bottom" id="Version Control" />
       <window_info anchor="bottom" id="Terminal" />
       <window_info anchor="bottom" id="Event Log" side_tool="true" />
-      <window_info anchor="bottom" id="Messages" weight="0.32884097" />
+      <window_info active="true" anchor="bottom" id="Messages" visible="true" weight="0.32884097" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
       <window_info anchor="bottom" id="Run" order="2" weight="0.32884097" />
-      <window_info active="true" anchor="bottom" id="Debug" order="3" visible="true" weight="0.39892185" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.39892185" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
@@ -383,27 +403,47 @@
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
   </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/ba/unsa/etf/rpr/Main.java</url>
-          <line>14</line>
-          <properties />
-          <option name="timeStamp" value="3" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/ba/unsa/etf/rpr/GeografijaDAO.java</url>
-          <line>94</line>
-          <properties />
-          <option name="timeStamp" value="9" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
-  </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/rpr-t9.iml">
       <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/xerial/sqlite-jdbc/3.21.0/sqlite-jdbc-3.21.0.jar!/org/sqlite/jdbc3/JDBC3ResultSet.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="293">
+          <caret line="63" selection-start-line="63" selection-end-line="63" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/xerial/sqlite-jdbc/3.21.0/sqlite-jdbc-3.21.0.jar!/org/sqlite/jdbc3/JDBC3PreparedStatement.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="157">
+          <caret line="52" selection-start-line="52" selection-end-line="52" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/junit/platform/junit-platform-commons/1.3.2/junit-platform-commons-1.3.2.jar!/org/junit/platform/commons/util/ReflectionUtils.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="140">
+          <caret line="64" column="133" selection-start-line="64" selection-start-column="133" selection-end-line="64" selection-end-column="133" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test/ba/unsa/etf/rpr/MainTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="238">
+          <caret line="14" selection-start-line="14" selection-end-line="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ba/unsa/etf/rpr/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="24" lean-forward="true" selection-start-column="24" selection-end-column="24" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/ba/unsa/etf/rpr/Grad.java">
       <provider selected="true" editor-type-id="text-editor">
@@ -426,17 +466,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/junit/platform/junit-platform-commons/1.3.2/junit-platform-commons-1.3.2.jar!/org/junit/platform/commons/util/ReflectionUtils.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="140">
-          <caret line="64" column="133" selection-start-line="64" selection-start-column="133" selection-end-line="64" selection-end-column="133" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/ba/unsa/etf/rpr/Drzava.java">
       <provider selected="true" editor-type-id="text-editor">
         <state>
-          <caret selection-end-column="24" />
+          <caret column="24" lean-forward="true" selection-start-column="24" selection-end-column="24" />
           <folding>
             <element signature="e#80#81#0" expanded="true" />
             <element signature="e#113#114#0" expanded="true" />
@@ -452,39 +485,15 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/test/ba/unsa/etf/rpr/GeografijaDAOTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="167">
-          <caret line="25" column="20" lean-forward="true" selection-start-line="25" selection-start-column="20" selection-end-line="25" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/xerial/sqlite-jdbc/3.21.0/sqlite-jdbc-3.21.0.jar!/org/sqlite/jdbc3/JDBC3ResultSet.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="293">
-          <caret line="63" selection-start-line="63" selection-end-line="63" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/ba/unsa/etf/rpr/Main.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="194">
-          <caret line="31" selection-start-line="31" selection-end-line="31" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/test/ba/unsa/etf/rpr/MainTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="8" selection-start-line="8" selection-end-line="8" />
+        <state relative-caret-position="150">
+          <caret line="102" selection-start-line="102" selection-end-line="102" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/ba/unsa/etf/rpr/GeografijaDAO.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="94" selection-start-line="94" selection-end-line="94" />
+        <state relative-caret-position="221">
+          <caret line="283" lean-forward="true" selection-start-line="283" selection-end-line="283" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#2457#2458#0" expanded="true" />

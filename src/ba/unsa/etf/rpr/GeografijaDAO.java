@@ -79,7 +79,7 @@ public class GeografijaDAO {
         ArrayList<Integer> indeksi = new ArrayList<>();
         try {
             Statement s = conn.createStatement();
-            ResultSet tabGrad = s.executeQuery("Select * from grad");
+
             ResultSet tabDrzava = s.executeQuery("Select * from drzava");
             while (tabDrzava.next()) {
                 int id = tabDrzava.getInt(1);
@@ -92,6 +92,7 @@ public class GeografijaDAO {
                 drzave.put(id, d);
                 indeksi.add(id);
             }
+            ResultSet tabGrad = s.executeQuery("Select * from grad");
             while (tabGrad.next()) {
                 int id = tabDrzava.getInt(1);
                 String ime = tabGrad.getString(2);
@@ -228,42 +229,29 @@ public class GeografijaDAO {
             instance.ps2 = instance.conn.prepareStatement("delete from grad where drzava=?");
             instance.ps3 = instance.conn.prepareStatement("delete from drzava where id=?");
             instance.ps4 = instance.conn.prepareStatement("insert into drzava values (?,?,?)");
-            instance.ps5 = instance.conn.prepareStatement("Select * from Drzava where id = ?");
+            instance.ps5 = instance.conn.prepareStatement("Select * from Drzava where naziv = ?");
             instance.ps6 = instance.conn.prepareStatement("Select * from grad where id = ?");
-        } catch (Exception e){}
+        } catch (Exception e){
+        }
         try {
-            String nazivDrzave = grad.getDrzava().getNaziv();
-            ps5.setString(1,nazivDrzave);
-            ResultSet set = ps5.executeQuery();
-            if(set.isClosed())return;
-            int id=0;
-            while(set.next()){
-                id=set.getInt(1);
-                set.close();
-                break;
-            }
-            PreparedStatement stm = conn.prepareStatement("select * from grad where drzava=?");
-            stm.setInt(1,id);
-            ResultSet res = stm.executeQuery();
-            while(res.next()){
-                if(res.getString(2).equals(grad.getNaziv()))return;
-            }
-
-            stm = conn.prepareStatement("SELECT max(*)FROM grad");
-            int k=0;
-            res = stm.executeQuery();
-            res.next();
-            k=res.getInt(1)+1;
-            res.close();
-            ps7.setInt(1,k+3);
-            ps7.setInt(3,grad.getBrojStanovnika());
-            ps7.setInt(4,id);
-            ps7.setString(2,grad.getNaziv());
-            ps7.execute();
-
+            ps1.setString(1,grad.getDrzava().getNaziv());
+            ResultSet drzava_grada = ps1.executeQuery();
+            if(!drzava_grada.next()) return;
+            int idDrzave = drzava_grada.getInt(1);
+            PreparedStatement s1 = conn.prepareStatement("Insert into grad values (?,?,?,?)");
+            Statement s = conn.createStatement();
+            ResultSet aa= s.executeQuery("Select max(id) from grad");
+            aa.next();
+            int id_grada = aa.getInt(1)+1;
+            s1.setInt(1,id_grada);
+            s1.setString(2,grad.getNaziv());
+            s1.setInt(3,grad.getBrojStanovnika());
+            s1.setInt(4,idDrzave);
+            s1.execute();
         } catch (SQLException e) {
             e.printStackTrace();
         }
+
 
     }
 
@@ -275,7 +263,7 @@ public class GeografijaDAO {
             instance.ps2 = instance.conn.prepareStatement("delete from grad where drzava=?");
             instance.ps3 = instance.conn.prepareStatement("delete from drzava where id=?");
             instance.ps4 = instance.conn.prepareStatement("insert into drzava values (?,?,?)");
-            instance.ps5 = instance.conn.prepareStatement("Select * from Drzava where id = ?");
+            instance.ps5 = instance.conn.prepareStatement("Select * from Drzava where naziv = ?");
             instance.ps6 = instance.conn.prepareStatement("Select * from grad where id = ?");
         }catch (Exception e){}
 
@@ -285,14 +273,14 @@ public class GeografijaDAO {
             ResultSet set = ps5.executeQuery();
             if( set.isClosed()|| !set.next() ){
                 Statement stm = conn.createStatement();
-                set = stm.executeQuery("select count(*) from drzava");
+                set = stm.executeQuery("select max(id) from drzava");
                 ps4.setString(2,drzava.getNaziv());
                 set.next();
-                int a = set.getInt(1);
-                ps4.setInt(1,a+2);
-                set = stm.executeQuery("select count(*) from grad");
+                int a = set.getInt(1)+1;
+                ps4.setInt(1,a);
+                set = stm.executeQuery("select max(*) from grad");
                 set.next();
-                int b=set.getInt(1)+3;
+                int b=set.getInt(1)+1;
 
                 ps4.setInt(3,b);
                 System.out.println(ps4.execute()+" lkjhgfdsa");;
@@ -309,34 +297,27 @@ public class GeografijaDAO {
     public void izmijeniGrad(Grad grad) {
         PreparedStatement statement = null;
         try {
-
-
             instance.ps1 = instance.conn.prepareStatement("select id from drzava where naziv = ?");
             instance.ps2 = instance.conn.prepareStatement("delete from grad where drzava=?");
             instance.ps3 = instance.conn.prepareStatement("delete from drzava where id=?");
             instance.ps4 = instance.conn.prepareStatement("insert into drzava values (?,?,?)");
-            instance.ps5 = instance.conn.prepareStatement("Select * from Drzava where id = ?");
+            instance.ps5 = instance.conn.prepareStatement("Select * from Drzava where  naziv = ?");
             instance.ps6 = instance.conn.prepareStatement("Select * from grad where id = ?");
         }catch (Exception e){
-
         }
         try {
             ps5.setString(1,grad.getDrzava().getNaziv());
             ResultSet res = ps5.executeQuery();
-            int id=0;
-            while(res.next()){
-                id=res.getInt(3);
-            }
+            int id=-1;
+            res.next();
+            id=res.getInt(3);
             ps6.setInt(1,id);
             ResultSet set = ps6.executeQuery();
             statement = conn.prepareStatement("update grad set naziv=? where id =?");
-            while(set.next()){
-                statement.setInt(2,id);
-                statement.setString(1,grad.getNaziv());
-                set.close();
-                break;
-            }
-            statement.execute();
+            statement.setInt(2,id);
+            statement.setString(1,grad.getNaziv());
+            set.close();
+            statement.executeUpdate();
         } catch (SQLException e) {
             e.printStackTrace();
         }
