@@ -2,6 +2,7 @@ package ba.unsa.etf.rpr;
 
 import java.sql.*;
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -116,6 +117,12 @@ public class GeografijaDAO {
         }
         ArrayList<Grad >  rezultat = new ArrayList<>();
         rezultat.addAll(gradovi.values());
+        rezultat.sort(new Comparator<Grad>() {
+            @Override
+            public int compare(Grad o1, Grad o2) {
+                return -o1.getBrojStanovnika()+o2.getBrojStanovnika();
+            }
+        });
         return rezultat;
     }
 

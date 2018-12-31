@@ -1,5 +1,7 @@
 package ba.unsa.etf.rpr;
 
+import java.util.Comparator;
+
 public class Grad {
     String ime;
     int brojStanovnika;
@@ -7,6 +9,12 @@ public class Grad {
     public Grad(){
         ime ="";
         brojStanovnika=0;
+    }
+    public class CustomComparator implements Comparator<Grad> {
+        @Override
+        public int compare(Grad o1, Grad o2) {
+            return o1.brojStanovnika-o2.brojStanovnika;
+        }
     }
     public String getIme() {
         return ime;
