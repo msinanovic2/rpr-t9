@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<GridPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            prefHeight="400.0" prefWidth="600.0">
+        <GridPane >
+            <Button fx:id="obrisiBtn"  text="obrisi drzavu" onAction="#brisi"/>
+        <TextField fx:id="obrisi" GridPane.rowIndex="0" GridPane.columnIndex="1" />
+          <Button fx:id="dodajGrad"  text="dodaj grad" onAction="#dodajG" GridPane.rowIndex="1" GridPane.columnIndex="1" />
+            <Button fx:id="dodajDrzavu" text="dodaj drzavu" onAction="#dodajD" GridPane.rowIndex="1" />
+        </GridPane>
+    <TableView fx:id="drzave"  GridPane.rowIndex="1">
+        <columns>
+            <TableColumn fx:id="naziv" text="Naziv"/>
+        </columns>
+    </TableView>
+    <TableView fx:id="gradovi" GridPane.rowIndex="2" >
+        <columns>
+            <TableColumn fx:id="ime" text="Naziv">
+            </TableColumn>
+            <TableColumn fx:id="brojStanovnika" text="Br ">
+            </TableColumn>
+        </columns>
+    </TableView>
+
+
+
+</GridPane>

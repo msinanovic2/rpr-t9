@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<GridPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            prefHeight="400.0" prefWidth="600.0">
+            <TextField fx:id="drzavaa" GridPane.columnIndex="1"/>
+            <TextField fx:id="graaaad" GridPane.columnIndex="1" GridPane.rowIndex="1"/>
+            <TextField fx:id="brojStanovnika" GridPane.columnIndex="1" GridPane.rowIndex="2"/>
+            <Label fx:id="drzavaLabela" text="Drzava" />
+            <Label fx:id="gradLabela" text="Grad" GridPane.rowIndex="1"/>
+            <Label fx:id="stanovnici" text="Broj Stanovnika" GridPane.rowIndex="2"/>
+            <Button fx:id="dodajGr" GridPane.rowIndex="3" onAction="#ubaci" text="Dodaj Grad"/>
+            <Button fx:id="dodajDr" GridPane.rowIndex="3" GridPane.columnIndex="1" onAction="#ubaci1" text="Dodaj Drzavu"/>
+</GridPane>

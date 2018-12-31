@@ -2,7 +2,6 @@ package ba.unsa.etf.rpr;
 
 import java.sql.*;
 import java.util.ArrayList;
-import java.util.Comparator;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -27,8 +26,8 @@ public class GeografijaDAO {
                 s.execute("insert into drzava Values (3,'Austrija',3)");
                 s.execute("insert into grad  Values (1,'London',8825000,1)");
                 s.execute("insert into grad  Values (2,'Pariz',2206488,2)");
-                s.execute("insert into grad  Values (3,'Beč',2206488,3)");
-                s.execute("insert into grad  Values (4,'Manchester',1899055,1)");
+                s.execute("insert into grad  Values (3,'Beč',1899055,3)");
+                s.execute("insert into grad  Values (4,'Manchester',545500,1)");
                 s.execute("insert into grad  Values (5,'Graz',280200,3)");
                 ps7 = conn.prepareStatement("INSERT INTO grad VALUES(?,?,?,?)");
             } catch (SQLException e1) {
@@ -51,7 +50,13 @@ public class GeografijaDAO {
     }
     
     public static void removeInstance() {
-            instance = null;
+        try {
+            if(instance != null)
+            instance.conn.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        instance = null;
     }
     private static void initialize(){
         instance = new GeografijaDAO();
@@ -80,30 +85,30 @@ public class GeografijaDAO {
         try {
             Statement s = conn.createStatement();
 
-            ResultSet tabDrzava = s.executeQuery("Select * from drzava");
+            ResultSet tabDrzava = s.executeQuery("Select * from drzava ");
             while (tabDrzava.next()) {
                 int id = tabDrzava.getInt(1);
                 Drzava d = new Drzava();
                 Grad g = new Grad();
-                g.setNaziv(String.valueOf(tabDrzava.getInt(3)));
+                g.setIme(String.valueOf(tabDrzava.getInt(3)));
                 d.setGlavniGrad(g);
                 String ime = tabDrzava.getString(2);
                 d.setNaziv(ime);
                 drzave.put(id, d);
                 indeksi.add(id);
             }
-            ResultSet tabGrad = s.executeQuery("Select * from grad");
+            ResultSet tabGrad = s.executeQuery("Select * from grad order by broj_stanovnika");
             while (tabGrad.next()) {
                 int id = tabDrzava.getInt(1);
                 String ime = tabGrad.getString(2);
                 Grad g = new Grad();
-                g.setNaziv(ime);
+                g.setIme(ime);
                 g.setBrojStanovnika(tabGrad.getInt(3));
                 g.setDrzava(drzave.get(tabGrad.getInt(4)));
                 gradovi.put(id, g);
             }
             for (int a: indeksi) {
-                int grad= Integer.parseInt( drzave.get(a).getGlavniGrad().getNaziv());
+                int grad= Integer.parseInt( drzave.get(a).getGlavniGrad().getIme());
                 drzave.get(a).setGlavniGrad(gradovi.get(grad));
             }
         }catch (Exception e){
@@ -128,10 +133,12 @@ public class GeografijaDAO {
             Statement s = conn.createStatement();
             ResultSet tabDrzava = s.executeQuery("Select * from drzava");
             Drzava drzava1 = new Drzava();
+            drzava1.setNaziv(drzava);
             while(tabDrzava.next()){
                 if(drzava.equals(tabDrzava.getString(2))){
                     drzava1.setNaziv(drzava);
                     id=tabDrzava.getInt(3);
+                    break;
                 }
             }
             ps6.setInt(1,id);
@@ -140,7 +147,7 @@ public class GeografijaDAO {
                 return null;
             }
             Grad glavniGrad=new Grad();
-                glavniGrad.setNaziv(rs2.getString(2));
+                glavniGrad.setIme(rs2.getString(2));
                 glavniGrad.setDrzava(drzava1);
                 glavniGrad.setBrojStanovnika(rs2.getInt(3));
                 drzava1.setGlavniGrad(glavniGrad);
@@ -188,31 +195,25 @@ public class GeografijaDAO {
         instance.ps2 = instance.conn.prepareStatement("delete from grad where drzava=?");
         instance.ps3 = instance.conn.prepareStatement("delete from drzava where id=?");
         instance.ps4 = instance.conn.prepareStatement("insert into drzava values (?,?,?)");
-        instance.ps5 = instance.conn.prepareStatement("Select * from Drzava where id = ?");
+        instance.ps5 = instance.conn.prepareStatement("Select * from Drzava where naziv = ?");
         instance.ps6 = instance.conn.prepareStatement("Select * from grad where id = ?");
     }catch (Exception e){}
         try {
 
             ps5.setString(1,drzava);
             ResultSet set = ps5.executeQuery();
-            if(set.isClosed()){
-                //nema drzave
+            if(!set.next()){
                 return null;
             }
             Drzava drzava1 = new Drzava();
             int id=0;
-            while(set.next()){
-                drzava1.setNaziv(set.getString(2));
-                id=set.getInt(3);
-                set.close();
-                break;
-            }
-
+            id = set.getInt(3);
+            drzava1.setNaziv(set.getString(2));
             Grad glavniGrad = new Grad();
             ps6.setInt(1,id);
             ResultSet res = ps6.executeQuery();
             res.next();
-            glavniGrad.setNaziv(res.getString(2));
+            glavniGrad.setIme(res.getString(2));
             glavniGrad.setBrojStanovnika(res.getInt(3));
             glavniGrad.setDrzava(drzava1);
             return drzava1;
@@ -244,10 +245,10 @@ public class GeografijaDAO {
             aa.next();
             int id_grada = aa.getInt(1)+1;
             s1.setInt(1,id_grada);
-            s1.setString(2,grad.getNaziv());
+            s1.setString(2,grad.getIme());
             s1.setInt(3,grad.getBrojStanovnika());
             s1.setInt(4,idDrzave);
-            s1.execute();
+            s1.executeUpdate();
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -278,12 +279,11 @@ public class GeografijaDAO {
                 set.next();
                 int a = set.getInt(1)+1;
                 ps4.setInt(1,a);
-                set = stm.executeQuery("select max(*) from grad");
+                set = stm.executeQuery("select max(id) from grad");
                 set.next();
                 int b=set.getInt(1)+1;
-
                 ps4.setInt(3,b);
-                System.out.println(ps4.execute()+" lkjhgfdsa");;
+                ps4.executeUpdate();
                 dodajGrad(drzava.getGlavniGrad());
 
 
@@ -315,11 +315,50 @@ public class GeografijaDAO {
             ResultSet set = ps6.executeQuery();
             statement = conn.prepareStatement("update grad set naziv=? where id =?");
             statement.setInt(2,id);
-            statement.setString(1,grad.getNaziv());
+            statement.setString(1,grad.getIme());
             set.close();
             statement.executeUpdate();
         } catch (SQLException e) {
             e.printStackTrace();
         }
     }
+    public ArrayList<Drzava> drzave(){
+        ArrayList<Drzava> drazaveee = new ArrayList<Drzava>();
+        try {
+            instance.ps1 = instance.conn.prepareStatement("select id from drzava where naziv = ?");
+            instance.ps2 = instance.conn.prepareStatement("delete from grad where drzava=?");
+            instance.ps3 = instance.conn.prepareStatement("delete from drzava where id=?");
+            instance.ps4 = instance.conn.prepareStatement("insert into drzava values (?,?,?)");
+            instance.ps5 = instance.conn.prepareStatement("Select * from Drzava where id = ?");
+            instance.ps6 = instance.conn.prepareStatement("Select * from grad where id = ?");
+
+        }catch (Exception e){
+        }
+        Map<Integer, Grad> gradovi = new HashMap<>();
+        Map<Integer, Drzava> drzave = new HashMap<>();
+        ArrayList<Integer> indeksi = new ArrayList<>();
+        ArrayList<Drzava >  rezultat = new ArrayList<>();
+
+        try {
+            Statement s = conn.createStatement();
+
+            ResultSet tabDrzava = s.executeQuery("Select * from drzava ");
+            while (tabDrzava.next()) {
+                int id = tabDrzava.getInt(1);
+                Drzava d = new Drzava();
+                Grad g = new Grad();
+                g.setIme(String.valueOf(tabDrzava.getInt(3)));
+                d.setGlavniGrad(g);
+                String ime = tabDrzava.getString(2);
+                d.setNaziv(ime);
+                rezultat.add(d);
+                indeksi.add(id);
+            }
+        }catch (Exception e){
+
+        }
+        rezultat.addAll(drzave.values());
+        return  rezultat;
+    }
+    public void test(){}
 }

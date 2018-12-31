@@ -1,19 +1,23 @@
 package ba.unsa.etf.rpr;
 
 public class Grad {
-    String naziv;
+    String ime;
     int brojStanovnika;
     Drzava drzava;
-    public String getNaziv() {
-        return naziv;
+    public Grad(){
+        ime ="";
+        brojStanovnika=0;
+    }
+    public String getIme() {
+        return ime;
     }
 
     public Drzava getDrzava() {
         return drzava;
     }
 
-    public void setNaziv(String ime) {
-        naziv= new String(ime);
+    public void setIme(String ime) {
+        this.ime = new String(ime);
     }
 
     public void setBrojStanovnika(int i) {

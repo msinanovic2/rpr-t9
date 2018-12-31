@@ -18,5 +18,8 @@ public class Drzava {
     public void setNaziv(String bosna_i_hercegovina) {
         naziv= new String(bosna_i_hercegovina);
     }
-    public Drzava(){}
+    public Drzava(){
+        naziv = "";
+        glavniGrad = new Grad();
+    }
 }
